@@ -1,0 +1,35 @@
+Bit module is made for PHPer who deal with binary. 
+
+Bit module provides easier access to any binary data. Just
+read binary into string, then do whatever you want with 
+module functions.
+
+This module provides following functions.
+
+string byte_get(string) - Return hex string from binary
+string byte_set(string) - Return binary string from hex string
+string bit_get(string) - Return 0 and 1 string from binary
+string bit_set(string) - Return binary from 0 and 1 string
+
+
+=== How to install ===
+1. Clone or download files.
+2. run "phpize" command in the realip module directory.
+   (phpize command is blong to php-devel package for most Linux)
+3. run "./configure --with-bit"
+4. run "make && make install"
+5. copy bit.ini to ini scan directory. e.g /etc/php.d/
+6. restart your web server.
+
+=== bit.ini EXAMPLES ===
+extension=bit.so
+
+=== EXAMPLE code ===
+$ php -r '$v=bit_set("00001111"); var_dump(ord($v));var_dump(bit_get($v));$v=byte_set("00FF00FF");var_dump(ord($v[1]));var_dump(byte_get($v));'
+int(15)
+string(8) "00001111"
+int(255)
+string(8) "00ff00ff"
+
+
+Auther: Yasuo Ohgaki <yohgaki@ohgaki.net> / <yohgaki@php.net>
